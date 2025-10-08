@@ -42,7 +42,7 @@ export default function Main() {
       </div>
       <div className='meme-box'>
         <img src={meme.memeImg} alt="Meme template" />
-        <span className='Top'>{meme.topRow}</span>
+        <span className='top'>{meme.topRow}</span>
         <span className='bottom'>{meme.bottomRow}</span>
       </div>
       <button className='download'>Download</button>

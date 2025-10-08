@@ -2,18 +2,18 @@ import React from 'react';
 import './Main.css';
 
 export default function Main() {
-    const [meme, SetMeme] = React.useState({
+    const [meme, setMeme] = React.useState({
         memeImg: 'https://i.imgflip.com/1bij.jpg',
         topRow: 'TOP TEXT',
         bottomRow: 'BOTTOM TEXT'
     })
     function changeTop(event){
         const {value} = event.currentTarget 
-        SetMeme(prev => ({...prev, topRow: value.length === 0 ? 'TOP TEXT': value}))
+        setMeme(prev => ({...prev, topRow: value.length === 0 ? 'TOP TEXT': value}))
     }
     function changeBottom(event){
         const {value} = event.currentTarget 
-        SetMeme(prev => ({...prev, bottomRow: value.length === 0 ? 'BOTTOM TEXT' : value  }))
+        setMeme(prev => ({...prev, bottomRow: value.length === 0 ? 'BOTTOM TEXT' : value  }))
     }
   return (
     <main className="main-container">

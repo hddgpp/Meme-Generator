@@ -76,6 +76,39 @@
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;    
+  font-family: 'Outfit', sans-serif;  
+}
+
+.controls label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;         
+}
+
+.controls select {
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease;
+}
+
+.controls select:hover {
+  border-color: #888;
+  background-color: #fff;
+}
+
+
 .download {
   background: #48bb78;
   color: white;

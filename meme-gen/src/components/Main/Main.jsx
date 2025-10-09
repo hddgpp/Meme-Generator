@@ -1,12 +1,19 @@
 import React from 'react';
+import {fonts} from '../../data/font.js'
 import './Main.css';
 
 export default function Main() {
     const [meme, setMeme] = React.useState({
         memeImg: 'https://i.imgflip.com/1bij.jpg',
         topRow: 'TOP TEXT',
-        bottomRow: 'BOTTOM TEXT'
+        bottomRow: 'BOTTOM TEXT',
+        font: 'outfit'
     })
+
+    function handleFontChange(e) {
+    setMeme(prev => ({ ...prev, font: e.target.value }))
+  }
+
     function changeTop(event){
         const {value} = event.currentTarget 
         setMeme(prev => ({...prev, topRow: value.length === 0 ? 'TOP TEXT': value}))
@@ -40,10 +47,31 @@ export default function Main() {
           <button className='get-img'>Get a new img</button>
         </div>
       </div>
-      <div className='meme-box'>
-        <img src={meme.memeImg} alt="Meme template" />
-        <span className='top'>{meme.topRow}</span>
-        <span className='bottom'>{meme.bottomRow}</span>
+      <div className="controls">
+        <label>
+          Font Style:
+          <select onChange={handleFontChange}>
+            {Object.keys(fonts).map(font => (
+              <option key={font} value={font}>{font}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <div className="meme-box">
+        <img src={meme.memeImg} alt="meme" />
+        <span 
+          className='top' 
+          style={{ fontFamily: fonts[meme.font] }}
+        >
+          {meme.topRow}
+        </span>
+        <span 
+          className='bottom' 
+          style={{ fontFamily: fonts[meme.font] }}
+        >
+          {meme.bottomRow}
+        </span>
       </div>
       <button className='download'>Download</button>
     </main>

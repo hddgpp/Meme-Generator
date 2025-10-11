@@ -1,4 +1,3 @@
-# This project isn't done yet!
 # MemeVerse Generator - Dynamic React Meme App  
 
 A **fun, responsive meme generator** built with React and modern CSS.  

@@ -1,4 +1,5 @@
 import React from 'react';
+import html2canvas from 'html2canvas';
 import {fonts} from '../../data/font.js'
 import './Main.css';
 
@@ -9,6 +10,19 @@ export default function Main() {
         bottomRow: 'BOTTOM TEXT',
         font: 'outfit'
     })
+    const [allMemes, setAllMemes] = React.useState([])
+
+    React.useEffect(() => {
+      fetch(`https://api.imgflip.com/get_memes`)
+      .then(res => res.json())
+      .then(data => setAllMemes(data.data.memes))
+    }, [])
+
+    function getMemeImg() {
+      const randomId = Math.floor(Math.random() * allMemes.length)
+      const newMemeUrl = allMemes[randomId].url
+      setMeme(prev => ({...prev, memeImg: newMemeUrl}))
+    }
 
     function handleFontChange(e) {
     setMeme(prev => ({ ...prev, font: e.target.value }))
@@ -22,6 +36,19 @@ export default function Main() {
         const {value} = event.currentTarget 
         setMeme(prev => ({...prev, bottomRow: value.length === 0 ? 'BOTTOM TEXT' : value  }))
     }
+
+    function downloadMeme() {
+  const memeBox = document.querySelector('.imgD');
+  if (!memeBox) return;
+
+  html2canvas(memeBox, { useCORS: true, backgroundColor: null }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'meme.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  });
+}
+
   return (
     <main className="main-container">
       <div className="input-box">
@@ -44,7 +71,10 @@ export default function Main() {
           </label>
         </div>
         <div className="button-container">
-          <button className='get-img'>Get a new img</button>
+          <button
+           className='get-img' 
+           onClick={getMemeImg}
+          >Get a new img</button>
         </div>
       </div>
       <div className="controls">
@@ -59,6 +89,7 @@ export default function Main() {
       </div>
 
       <div className="meme-box">
+        <div className='imgD'>
         <img src={meme.memeImg} alt="meme" />
         <span 
           className='top' 
@@ -72,8 +103,9 @@ export default function Main() {
         >
           {meme.bottomRow}
         </span>
+        </div>
       </div>
-      <button className='download'>Download</button>
+      <button className='download' onClick={downloadMeme}>Download</button>
     </main>
   );
 }

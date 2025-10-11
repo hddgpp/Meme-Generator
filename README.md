@@ -1,4 +1,4 @@
-# MemeVerse Generator - Dynamic React Meme App  
+# Meme-Generator - Dynamic React Meme App  
 
 A **fun, responsive meme generator** built with React and modern CSS.  
 Fetches random meme templates via the **Imgflip API**, lets users add custom captions, pick fonts, and **download the final meme** — all in the browser.

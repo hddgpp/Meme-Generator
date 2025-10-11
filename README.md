@@ -9,12 +9,7 @@ Fetches random meme templates via the **Imgflip API**, lets users add custom cap
 ---
 
 ## 🚀 Live Demo
-[View Live Site](https://memeverse.netlify.app)
-
----
-
-## HEADER  
-<img width="1900" height="878" alt="MemeVerse Generator UI" src="https://github.com/user-attachments/assets/your-image-link-here" />
+[View Live Site](meme-generator-two-mocha.vercel.app)
 
 ---
 

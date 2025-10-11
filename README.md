@@ -8,7 +8,7 @@ Fetches random meme templates via the **Imgflip API**, lets users add custom cap
 ---
 
 ## 🚀 Live Demo
-[View Live Site](meme-generator-two-mocha.vercel.app)
+[View Live Site](https://meme-generator-two-mocha.vercel.app/)
 
 ---
 
